@@ -1,7 +1,7 @@
 <template lang="pug">
-div.container
+div
   logo
-  h1.title tabiShindan
+  h1 tabiShindan
 </template>
 
 <script>
