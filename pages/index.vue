@@ -31,5 +31,11 @@ export default {
 </script>
 
 <style lang="sass">
-
+.index
+  max-width: 375px
+  height: 680px
+  margin: 100px auto
+  padding: 32px 20px
+  border: 5px solid #ffffff
+  border-radius: 32px
 </style>
