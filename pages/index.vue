@@ -43,11 +43,9 @@ export default {
 <style lang="sass">
 .index__container
   max-width: 375px
-  height: 680px
-  margin: 100px auto
+  height: 100vh
+  margin: auto
   padding: 32px 20px
   text-align: center
   background-color: #444444
-  border: 5px solid #ffffff
-  border-radius: 32px
 </style>

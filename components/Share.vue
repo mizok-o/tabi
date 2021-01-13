@@ -18,13 +18,13 @@
 </template>
 <style lang="sass">
   .result__share
-    margin-top: 24px
+    margin-top: 32px
 
   .result__share__container
     display: flex
     width: 120px
     justify-content: space-between
-    margin: 12px auto 0
+    margin: 8px auto 0
 
   .result__share__item-link
 
