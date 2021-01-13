@@ -1,13 +1,13 @@
 <template lang="pug">
 .index__container
-  Start(@upNumber="addNumber" v-if="startClicked === 0")
+  Start(@upNumber="addNumber" v-if="startClicked === 6")
   Shindan(
     @upNumber="addNumber"
     v-if="startClicked === (i + 1)"
     v-for="(q, i) in quizL", :key="i"
     :qChild="q",
     :buttonN="startClicked")
-  Result(v-if="startClicked === 6")
+  Result(v-if="startClicked === 0")
 </template>
 
 <script>
@@ -44,6 +44,7 @@ export default {
   margin: 100px auto
   padding: 32px 20px
   text-align: center
+  background-color: #444444
   border: 5px solid #ffffff
   border-radius: 32px
 </style>
