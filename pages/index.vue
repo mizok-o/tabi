@@ -1,13 +1,13 @@
 <template lang="pug">
 .index__container
-  Start(@upNumber="addNumber" v-if="startClicked === 6")
+  Start(@upNumber="addNumber" v-if="startClicked === 0")
   Shindan(
     @upNumber="addNumber"
     v-if="startClicked === (i + 1)"
     v-for="(q, i) in quizL", :key="i"
     :qChild="q",
     :buttonN="startClicked")
-  Result(v-if="startClicked === 0")
+  Result(v-if="startClicked === 6" @setZero="reset")
 </template>
 
 <script>
@@ -31,6 +31,9 @@ export default {
   methods: {
     addNumber(n) {
       return this.startClicked += n
+    },
+    reset(s) {
+      return this.startClicked = s
     }
   }
 }
