@@ -4,7 +4,7 @@
   p.q__text {{ question.text }}
   .q__content
     ul.q__list
-      QItem(v-for="(item, i) in questionList", :key="i", :item="item")
+      QItem(v-for="(item, i) in question.questionList", :key="i", :item="item")
   button(@click="shindanStart").index__button 次の問題へ
 </template>
 
@@ -18,15 +18,6 @@ export default {
   },
   components:{
     QItem
-  },
-  data() {
-    return {
-      questionList: [
-        { n: "A", text: "ラーメン" },
-        { n: "B", text: "牛丼" },
-        { n: "C", text: "ハンバーガー" }
-      ]
-    }
   },
   mixins: [Mixin]
 }
