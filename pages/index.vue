@@ -7,7 +7,7 @@
     v-for="(q, i) in quizL", :key="i"
     :qChild="q",
     :buttonN="startClicked")
-  Result(v-if="startClicked === 6")
+  Result(v-if="startClicked === 6" @setZero="reset")
 </template>
 
 <script>
@@ -31,6 +31,9 @@ export default {
   methods: {
     addNumber(n) {
       return this.startClicked += n
+    },
+    reset(s) {
+      return this.startClicked = s
     }
   }
 }
@@ -40,10 +43,10 @@ export default {
 <style lang="sass">
 .index__container
   max-width: 375px
-  height: 680px
-  margin: 100px auto
+  max-height: 800px
+  height: 100vh
+  margin: auto
   padding: 32px 20px
   text-align: center
-  border: 5px solid #ffffff
-  border-radius: 32px
+  background-color: #222222
 </style>

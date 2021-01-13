@@ -21,7 +21,7 @@ export default {
     qChild: Object,
     buttonN: Number
   },
-  components:{
+  components: {
     QItem
   },
   mixins: [Mixin]

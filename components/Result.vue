@@ -1,12 +1,45 @@
 <template lang="pug">
 .result__container
   h1.result__title 診断結果
-  p.result__text あなたのおすすめの国は台湾です。
   .result__content
-  button.index__button もう一度やる
+    p.result__text
+      |あなたにおすすめの国は
+      br
+      span.result__country 台湾
+      br
+      |です。
+    .result-img
+  <!-- シェアボタン -->
+  Share
+  button(@click="shindanRestart").index__button もう一度やる
 </template>
 <script>
+import Share from '~/components/Share.vue'
+export default {
+  components: {
+    Share
+  },
+  methods: {
+    shindanRestart() {
+      this.$emit('setZero', 0);
+    }
+  }
+}
 </script>
 <style lang="sass">
+.result__text
+  margin-top: 24px
+  line-height: 1.5
+
+.result__country
+  font-size: 40px
+  font-weight: bold
+
+.result-img
+  width: 160px
+  height: 160px
+  margin: 24px auto 0
+  background-size: contain
+  background-image: url('~assets/img/result_1.jpg')
 
 </style>
