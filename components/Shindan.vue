@@ -33,8 +33,6 @@ export default {
 </script>
 
 <style lang="sass">
-.q__container
-  text-align: center
 
 .q__text
   margin-top: 24px
