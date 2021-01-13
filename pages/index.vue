@@ -43,6 +43,7 @@ export default {
 <style lang="sass">
 .index__container
   max-width: 375px
+  max-height: 800px
   height: 100vh
   margin: auto
   padding: 32px 20px

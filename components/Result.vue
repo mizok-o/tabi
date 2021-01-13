@@ -39,6 +39,7 @@ export default {
   width: 160px
   height: 160px
   margin: 24px auto 0
-  background-color: #333333
+  background-size: contain
+  background-image: url('~assets/img/result_1.jpg')
 
 </style>
