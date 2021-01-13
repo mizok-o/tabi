@@ -30,7 +30,7 @@ export default {
   align-items: center
   margin-top: 24px
   border-radius: 28px
-  background-color: #ffffff
+  background-color: $color-base
 
 .q__list__item-radio
   position: absolute
@@ -45,7 +45,7 @@ export default {
       opacity: 1
 
 .q__list__item-text
-  color: #111
+  color: $color-main
   font-weight: bold
   &::before
     content: ""

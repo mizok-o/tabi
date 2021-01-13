@@ -1,7 +1,7 @@
 <template lang="pug">
 .start__contaienr
   logo
-  h1.start__title 旅先診断
+  h1.start__title みんなの旅先診断
   p.start__sub 5つの質問であなたにおすすめの旅先（海外旅行）を診断します！
   button(@click="shindanStart").index__button 診断開始
 </template>
@@ -25,6 +25,7 @@ export default {
 
 .start__title
   margin-top: 40px
+  font-family: $font-title
   font-size: 32px
 
 .start__sub
@@ -39,9 +40,10 @@ export default {
   width: 200px
   height: 48px
   font-weight: bold
+  color: $color-letter
   cursor: pointer
   border-radius: 24px
   border: none
-  background-color: #ffffff
+  background-color: $color-base
 
 </style>
