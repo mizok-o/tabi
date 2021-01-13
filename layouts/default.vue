@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.index
   nuxt
 </template>
 
@@ -16,12 +16,13 @@ html
   background-color: #E88780
   color: #fafafa
 
-
 *,
 *:before,
 *:after
   box-sizing: border-box
   margin: 0
 
+.index
+  position: relative
 
 </style>
