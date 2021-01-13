@@ -1,7 +1,7 @@
 <template lang="pug">
 .q__container
-  h1 第一問
-  p あなたの好きな食べ物は？
+  h1.q__title 第一問
+  p.q__text あなたの好きな食べ物は？
   .q__content
     ul.q__list
       li.q__list__item
@@ -30,6 +30,11 @@ export default {
 .q__container
   text-align: center
 
+.q__text
+  margin-top: 24px
+  font-size: 20px
+  font-weight: bold
+
 .q__content
   margin: 64px 0 0
 
@@ -40,7 +45,7 @@ export default {
   height: 56px
   justify-content: center
   align-items: center
-  margin: 24px 0 0
+  margin-top: 24px
   border-radius: 28px
   background-color: #ffffff
 
@@ -68,6 +73,8 @@ export default {
     display: block
     width: 24px
     height: 24px
+    opacity: 0
+    border: 1px solid #111111
     border-radius: 50%
 
 </style>
