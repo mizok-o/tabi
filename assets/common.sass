@@ -1,0 +1,90 @@
+//全てに適用
+*,
+*:before,
+*:after,
+*,
+*:focus
+  outline: none
+
+html,
+body
+  margin: 0
+  padding: 0
+  word-wrap: break-word
+  -webkit-font-smoothing: antialiased
+
+html
+  overflow-y: auto
+  -webkit-overflow-scrolling: touch
+  height: 100%
+
+body
+  overflow: hidden
+  -webkit-overflow-scrolling: touch
+  width: 100%
+  height: auto
+  min-height: 100%
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure,
+p,
+pre
+  margin: 0
+
+img
+  display: block
+  width: 100%
+
+a
+  text-decoration: none
+  color: inherit
+  img
+    border: none
+  &:focus,
+    outline: none
+
+hr
+  margin: 0
+  border: none
+
+main
+  display: block
+
+button
+  background-color: transparent
+  border: none
+  cursor: pointer
+  outline: none
+  padding: 0
+  appearance: none
+
+.c-copyguard
+  position: relative
+  &:before
+    content: ""
+    position: absolute
+    top: 0
+    right: 0
+    left: 0
+    bottom: 0
+    z-index: 2
+    display: block
+    width: 100%
+    height: 100%
+
+ul,
+ol,
+  list-style: none
+
+@media print
+  html,
+  body
+    display: none
