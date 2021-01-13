@@ -4,20 +4,26 @@
   p.q__text あなたの好きな食べ物は？
   .q__content
     ul.q__list
-      li.q__list__item
-        input.q__list__item-radio(type="radio")
-        p.q__list__item-text A: 質問です
-      li.q__list__item
-        input.q__list__item-radio(type="radio")
-        p.q__list__item-text B: 質問です
-      li.q__list__item
-        input.q__list__item-radio(type="radio")
-        p.q__list__item-text C: 質問です
+      QItem(v-for="(item, i) in questionList", :key="i", :item="item")
   button(@click="shindanStart").index__button 次の問題へ
 </template>
 
 <script>
+import QItem from '~/components/QItem.vue'
+
 export default {
+  data() {
+    return {
+      questionList: [
+        { n: "A", text: "ラーメン" },
+        { n: "B", text: "牛丼" },
+        { n: "C", text: "ハンバーガー" }
+      ]
+    }
+  },
+  components:{
+    QItem
+  },
   methods: {
     shindanStart() {
       this.$emit('upNumber', 1);
