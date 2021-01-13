@@ -48,5 +48,5 @@ export default {
   margin: auto
   padding: 32px 20px
   text-align: center
-  background-color: #444444
+  background-color: #222222
 </style>
