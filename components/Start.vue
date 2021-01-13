@@ -1,8 +1,8 @@
 <template lang="pug">
 .start__contaienr
   logo
-  h1.start__title あなたの海外旅行診断
-  p.start__sub 8つの質問であなたが訪れるべき国を診断します！次行く旅行の参考になるかも？？
+  h1.start__title 旅先診断
+  p.start__sub 5つの質問であなたにおすすめの旅先（海外旅行）を診断します！
   button(@click="shindanStart").index__button 診断開始
 </template>
 
@@ -29,7 +29,7 @@ export default {
 
 .start__sub
   margin-top: 24px
-  font-size: 16px
+  font-size: 18px
 
 .index__button
   position: absolute
