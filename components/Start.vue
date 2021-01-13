@@ -32,9 +32,12 @@ export default {
   font-size: 16px
 
 .index__button
+  position: absolute
+  bottom: 72px
+  left: 50%
+  transform: translateX(-50%)
   width: 200px
   height: 48px
-  margin-top: 80px
   font-weight: bold
   cursor: pointer
   border-radius: 24px

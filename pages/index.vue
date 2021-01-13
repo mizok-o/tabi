@@ -1,5 +1,5 @@
 <template lang="pug">
-.index
+.index__container
   Start(@upNumber="addNumber" v-if="startClicked === 0")
   Shindan(@upNumber="addNumber" v-for="(q, i) in quiz" v-if="startClicked === (i + 1)", :key="i", :question="q")
   Result(v-if="startClicked === 6")
@@ -131,7 +131,7 @@ export default {
 </script>
 
 <style lang="sass">
-.index
+.index__container
   max-width: 375px
   height: 680px
   margin: 100px auto
