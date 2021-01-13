@@ -25,8 +25,8 @@
   font-weight: bold
 
 .result-img
-  width: 200px
-  height: 200px
+  width: 160px
+  height: 160px
   margin: 24px auto 0
   background-color: #333333
 
