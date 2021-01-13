@@ -8,16 +8,13 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
+import Mixin from '~/plugins/mixin'
 
 export default {
   components:{
     Logo
   },
-  methods: {
-    shindanStart() {
-      this.$emit('upNumber', 1);
-    }
-  }
+  mixins: [Mixin]
 }
 
 </script>

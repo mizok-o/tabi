@@ -1,7 +1,7 @@
 <template lang="pug">
 .q__container
-  h1.q__title 第一問
-  p.q__text あなたの好きな食べ物は？
+  h1.q__title 第{{question.id}}問
+  p.q__text {{ question.text }}
   .q__content
     ul.q__list
       QItem(v-for="(item, i) in questionList", :key="i", :item="item")
@@ -10,8 +10,15 @@
 
 <script>
 import QItem from '~/components/QItem.vue'
+import Mixin from '~/plugins/mixin'
 
 export default {
+  props: {
+    question: Object
+  },
+  components:{
+    QItem
+  },
   data() {
     return {
       questionList: [
@@ -21,14 +28,7 @@ export default {
       ]
     }
   },
-  components:{
-    QItem
-  },
-  methods: {
-    shindanStart() {
-      this.$emit('upNumber', 1);
-    }
-  }
+  mixins: [Mixin]
 }
 </script>
 

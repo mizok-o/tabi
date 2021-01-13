@@ -1,7 +1,7 @@
 <template lang="pug">
 .index
   Start(@upNumber="addNumber" v-if="startClicked === 0")
-  Shindan(v-for="(item, i) in quizList" v-if="startClicked === 1", :key="i")
+  Shindan(@upNumber="addNumber" v-for="(q, i) in quizList" v-if="startClicked === (i + 1)", :key="i", :question="q")
 </template>
 
 <script>
@@ -17,7 +17,9 @@ export default {
     return {
       startClicked: 0,
       quizList: [
-        {title: "あなたの好きな食べ物は", id: 1}
+        {text: "あなたの好きな食べ物は", id: 1},
+        {text: "映画は", id: 2},
+        {text: "あなたの好きな漫画は", id: 3}
       ]
     }
   },
