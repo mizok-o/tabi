@@ -1,7 +1,12 @@
 <template lang="pug">
 .index__container
   Start(@upNumber="addNumber" v-if="startClicked === 0")
-  Shindan(@upNumber="addNumber" v-for="(q, i) in quiz" v-if="startClicked === (i + 1)", :key="i", :question="q")
+  Shindan(
+    @upNumber="addNumber"
+    v-if="startClicked === (i + 1)"
+    v-for="(q, i) in quiz", :key="i"
+    :qChild="q",
+    :buttonN="startClicked")
   Result(v-if="startClicked === 6")
 </template>
 
