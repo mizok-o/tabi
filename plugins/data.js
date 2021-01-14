@@ -4,7 +4,7 @@ const quizList = [
     id: 1,
     questionList: [
       {
-        n: "A",
+        n: 1,
         text: "5万円以下",
         sArea: {
           eu: 0,
@@ -13,7 +13,7 @@ const quizList = [
         }
       },
       {
-        n: "B",
+        n: 2,
         text: "5~10万円",
         sArea: {
           eu: 4,
@@ -22,7 +22,7 @@ const quizList = [
         }
       },
       {
-        n: "C",
+        n: 3,
         text: "10~15万円",
         sArea: {
           eu: 5,
@@ -31,7 +31,7 @@ const quizList = [
         }
       },
       {
-        n: "D",
+        n: 4,
         text: "15万円以上",
         sArea: {
           eu: 2,
@@ -46,20 +46,40 @@ const quizList = [
     id: 2,
     questionList: [
       {
-        n: "A",
-        text: "春"
+        n: 1,
+        text: "春",
+        sArea: {
+          eu: 0,
+          as: 5,
+          us: 0
+        }
       },
       {
-        n: "B",
-        text: "夏"
+        n: 2,
+        text: "夏",
+        sArea: {
+          eu: 0,
+          as: 5,
+          us: 0
+        }
       },
       {
-        n: "C",
-        text: "秋"
+        n: 3,
+        text: "秋",
+        sArea: {
+          eu: 0,
+          as: 5,
+          us: 0
+        }
       },
       {
-        n: "D",
-        text: "冬"
+        n: 4,
+        text: "冬",
+        sArea: {
+          eu: 0,
+          as: 5,
+          us: 0
+        }
       }
     ]
   },
@@ -68,16 +88,31 @@ const quizList = [
     id: 3,
     questionList: [
       {
-        n: "A",
-        text: "家族"
+        n: 1,
+        text: "家族",
+        sArea: {
+          eu: 0,
+          as: 5,
+          us: 0
+        }
       },
       {
-        n: "B",
-        text: "友達"
+        n: 2,
+        text: "友達",
+        sArea: {
+          eu: 0,
+          as: 5,
+          us: 0
+        }
       },
       {
-        n: "C",
-        text: "ひとり"
+        n: 3,
+        text: "ひとり",
+        sArea: {
+          eu: 0,
+          as: 5,
+          us: 0
+        }
       }
     ]
   },
@@ -86,20 +121,40 @@ const quizList = [
     id: 4,
     questionList: [
       {
-        n: "A",
-        text: "世界遺産"
+        n: 1,
+        text: "世界遺産",
+        sArea: {
+          eu: 0,
+          as: 5,
+          us: 0
+        }
       },
       {
-        n: "B",
-        text: "買い物"
+        n: 2,
+        text: "買い物",
+        sArea: {
+          eu: 0,
+          as: 5,
+          us: 0
+        }
       },
       {
-        n: "C",
-        text: "食事"
+        n: 3,
+        text: "食事",
+        sArea: {
+          eu: 0,
+          as: 5,
+          us: 0
+        }
       },
       {
-        n: "D",
-        text: "街の景観"
+        n: 4,
+        text: "街の景観",
+        sArea: {
+          eu: 0,
+          as: 5,
+          us: 0
+        }
       }
     ]
   },
@@ -108,16 +163,31 @@ const quizList = [
     id: 5,
     questionList: [
       {
-        n: "A",
-        text: "衛生面"
+        n: 1,
+        text: "衛生面",
+        sArea: {
+          eu: 0,
+          as: 5,
+          us: 0
+        }
       },
       {
-        n: "B",
-        text: "治安"
+        n: 2,
+        text: "治安",
+        sArea: {
+          eu: 0,
+          as: 5,
+          us: 0
+        }
       },
       {
-        n: "C",
-        text: "言語"
+        n: 3,
+        text: "言語",
+        sArea: {
+          eu: 0,
+          as: 5,
+          us: 0
+        }
       }
     ]
   }
