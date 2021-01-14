@@ -1,29 +1,25 @@
 <template lang="pug">
 .index__container
-  <!-- スタート -->
+  <!-- スタート画面 -->
   .start__contaienr(v-if="startClicked === 0")
     logo
     h1.start__title みんなの旅先診断
     p.start__sub 5つの質問であなたにおすすめの旅先（海外旅行）を診断します！
     button(@click="shindanStart").index__button 診断開始
-  <!-- 診断1問目〜5問目 -->
+  <!-- 質問 -->
   .q__container(v-if="startClicked === (i + 1)" v-for="(q, i) in quizL", :key="i")
     h1.q__title 第{{q.id}}問
     p.q__text {{ q.text }}
     .q__content
       ul.q__list
-        li.q__list__item(
-          v-for="(item, index) in q.questionList", :key="'q-' + index"
-          :item="item"
-          
-        )
+        li.q__list__item(v-for="(item, index) in q.questionList", :key="'q-' + item.n")
           input.q__list__item-radio(
             type="radio"
-            :name="'q-' + item.id"
-
-          )
+            :name="'que-' + q.id"
+            :value="item.sArea"
+            v-model="answer[i]")
           p.q__list__item-text {{ item.text }}
-    button(@click="shindanStart" v-if="startClicked === 5").index__button 診断結果を見る
+    button(@click="toResult" v-if="startClicked === 5").index__button 診断結果を見る
     button(@click="shindanStart" v-else).index__button 次の問題へ
   <!-- 結果 -->
   .result__container(v-if="startClicked === 6")
@@ -54,12 +50,36 @@ export default {
   data() {
     return {
       startClicked: 0,
-      quizL: quizList
+      quizL: quizList,
+      answer: ["", "", "", ""],
+      result: ""
     }
   },
   methods: {
     shindanStart() {
       return this.startClicked += 1
+    },
+    toResult() {
+      this.startClicked = 6
+
+      console.log(this.answer);
+
+      const as = this.answer.reduce((x, y) => x + y.as, 0)
+      const eu = this.answer.reduce((x, y) => x + y.eu, 0)
+      const us = this.answer.reduce((x, y) => x + y.us, 0)
+      // console.log(as);
+      // console.log(eu);
+      // console.log(us);
+      const resultArray = [as, eu, us];
+      const max = resultArray.reduce((a, b) => Math.max(a, b))
+      console.log("max");
+      console.log(max);
+      const result = resultArray.filter(score => score === max);
+      console.log("result");
+      console.log(result);
+      const area = ["アジア", "ヨーロッパ", "アメリカ"]
+      this.result = area[resultArray.indexOf(max)]
+      console.log(this.result);
     },
     reStart() {
       return this.startClicked = 0
