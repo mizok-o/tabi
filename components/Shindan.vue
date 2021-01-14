@@ -5,16 +5,16 @@
   .q__content
     ul.q__list
       QItem(
-        v-for="(item, i) in qChild.questionList", :key="'q-' + i"
+        v-for="(item, index) in qChild.questionList", :key="'q-' + index"
         :item="item"
-        :qGrand="qChild")
-  button(@click="shindanStart" v-if="buttonN < 5").index__button 次の問題へ
-  button(@click="shindanStart" v-else).index__button 診断結果を見る
+        :qGrand="qChild"
+        v-model="choose")
+  button(@click="toNext" v-if="buttonN < 5").index__button 次の問題へ
+  button(@click="toResult" v-else).index__button 診断結果を見る
 </template>
 
 <script>
 import QItem from '~/components/QItem.vue'
-import Mixin from '~/plugins/mixin'
 
 export default {
   props: {
@@ -23,8 +23,20 @@ export default {
   },
   components: {
     QItem
+  },data() {
+    return {
+      choose: ''
+    }
   },
-  mixins: [Mixin]
+  methods: {
+    toResult() {
+      this.$emit('upNumber', 1);
+    },
+    toNext() {
+      console.log(this.choose);
+      this.$emit('upNumber', 1);
+    }
+  }
 }
 </script>
 

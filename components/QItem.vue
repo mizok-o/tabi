@@ -3,19 +3,17 @@ li.q__list__item
   input.q__list__item-radio(
     type="radio"
     :name="'q-' + qGrand.id"
-    :value="item.n"
-    v-model="answer")
+    :value="value"
+    @input="$emit('input', item.sArea)")
   p.q__list__item-text {{ item.text }}
 </template>
 <script>
 export default {
   props: {
     qGrand: Object,
-    item: Object
-  },
-  data() {
-    return {
-      answer: "A"
+    item: Object,
+    value: {
+      type: ''
     }
   }
 }

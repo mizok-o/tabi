@@ -5,7 +5,7 @@
     @upNumber="addNumber"
     v-if="startClicked === (i + 1)"
     v-for="(q, i) in quizL", :key="i"
-    :qChild="q",
+    :qChild="q"
     :buttonN="startClicked")
   Result(v-if="startClicked === 6" @setZero="reset")
 </template>
