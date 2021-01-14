@@ -1,26 +1,55 @@
 <template lang="pug">
 .index__container
-  Start(@upNumber="addNumber" v-if="startClicked === 0")
-  Shindan(
-    @upNumber="addNumber"
-    v-if="startClicked === (i + 1)"
-    v-for="(q, i) in quizL", :key="i"
-    :qChild="q"
-    :buttonN="startClicked")
-  Result(v-if="startClicked === 6" @setZero="reset")
+  <!-- スタート -->
+  .start__contaienr(v-if="startClicked === 0")
+    logo
+    h1.start__title みんなの旅先診断
+    p.start__sub 5つの質問であなたにおすすめの旅先（海外旅行）を診断します！
+    button(@click="shindanStart").index__button 診断開始
+  <!-- 診断1問目〜5問目 -->
+  .q__container(v-if="startClicked === (i + 1)" v-for="(q, i) in quizL", :key="i")
+    h1.q__title 第{{q.id}}問
+    p.q__text {{ q.text }}
+    .q__content
+      ul.q__list
+        li.q__list__item(
+          v-for="(item, index) in q.questionList", :key="'q-' + index"
+          :item="item"
+          
+        )
+          input.q__list__item-radio(
+            type="radio"
+            :name="'q-' + item.id"
+
+          )
+          p.q__list__item-text {{ item.text }}
+    button(@click="shindanStart" v-if="startClicked === 5").index__button 診断結果を見る
+    button(@click="shindanStart" v-else).index__button 次の問題へ
+  <!-- 結果 -->
+  .result__container(v-if="startClicked === 6")
+    h1.result__title 診断結果
+    .result__content
+      p.result__text
+        |あなたにおすすめの国は
+        br
+        span.result__country 台湾
+        br
+        |です。
+      .result-img
+    <!-- シェアボタン -->
+    Share
+    button(@click="reStart").index__button もう一度やる
 </template>
 
 <script>
-import Start from '~/components/Start.vue'
-import Shindan from '~/components/Shindan.vue'
-import Result from '~/components/Result.vue'
+import Logo from '~/components/Logo.vue'
 import quizList from '../plugins/data'
+import Share from '~/components/Share.vue'
 
 export default {
   components:{
-    Start,
-    Shindan,
-    Result
+    Logo,
+    Share
   },
   data() {
     return {
@@ -29,11 +58,11 @@ export default {
     }
   },
   methods: {
-    addNumber(n) {
-      return this.startClicked += n
+    shindanStart() {
+      return this.startClicked += 1
     },
-    reset(s) {
-      return this.startClicked = s
+    reStart() {
+      return this.startClicked = 0
     }
   }
 }
@@ -49,4 +78,100 @@ export default {
   padding: 32px 20px
   text-align: center
   background-color: $color-letter
+
+/* スタート */
+
+.start__contaienr
+  text-align: center
+
+.start__title
+  margin-top: 40px
+  font-family: $font-title
+  font-size: 32px
+
+.start__sub
+  margin-top: 24px
+  font-size: 18px
+
+.index__button
+  position: absolute
+  bottom: 48px
+  left: 50%
+  transform: translateX(-50%)
+  width: 200px
+  height: 48px
+  font-weight: bold
+  color: $color-letter
+  cursor: pointer
+  border-radius: 24px
+  border: none
+  background-color: $color-base
+
+/* 診断1問目〜5問 */
+
+.q__text
+  margin-top: 24px
+  font-size: 20px
+  font-weight: bold
+
+.q__content
+  margin: 64px 0 0
+
+.q__list__item
+  position: relative
+  display: flex
+  width: 320px
+  height: 56px
+  justify-content: center
+  align-items: center
+  margin-top: 24px
+  border-radius: 28px
+  background-color: $color-base
+
+.q__list__item-radio
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  opacity: 0
+  cursor: pointer
+  &:checked + .q__list__item-text
+    &::before
+      opacity: 1
+
+.q__list__item-text
+  color: $color-main
+  font-weight: bold
+  &::before
+    content: ""
+    position: absolute
+    top: 50%
+    left: 16px
+    transform: translateY(-50%)
+    display: block
+    width: 24px
+    height: 24px
+    opacity: 0
+    background-size: contain
+    background-repeat: no-repeat
+    background-image: url('~assets/img/check.svg')
+
+/* 結果 */
+
+.result__text
+  margin-top: 24px
+  line-height: 1.5
+
+.result__country
+  font-family: $font-title
+  font-size: 40px
+
+.result-img
+  width: 160px
+  height: 160px
+  margin: 24px auto 0
+  background-size: contain
+  background-image: url('~assets/img/result_1.jpg')
+
 </style>
