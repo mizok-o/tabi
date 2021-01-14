@@ -51,7 +51,8 @@ export default {
     return {
       startClicked: 0,
       quizL: quizList,
-      answer: ["", "", "", ""]
+      answer: ["", "", "", ""],
+      result: ""
     }
   },
   methods: {
@@ -66,9 +67,19 @@ export default {
       const as = this.answer.reduce((x, y) => x + y.as, 0)
       const eu = this.answer.reduce((x, y) => x + y.eu, 0)
       const us = this.answer.reduce((x, y) => x + y.us, 0)
-      console.log(as);
-      console.log(eu);
-      console.log(us);
+      // console.log(as);
+      // console.log(eu);
+      // console.log(us);
+      const resultArray = [as, eu, us];
+      const max = resultArray.reduce((a, b) => Math.max(a, b))
+      console.log("max");
+      console.log(max);
+      const result = resultArray.filter(score => score === max);
+      console.log("result");
+      console.log(result);
+      const area = ["アジア", "ヨーロッパ", "アメリカ"]
+      this.result = area[resultArray.indexOf(max)]
+      console.log(this.result);
     },
     reStart() {
       return this.startClicked = 0
