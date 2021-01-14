@@ -8,9 +8,10 @@
         v-for="(item, index) in qChild.questionList", :key="'q-' + index"
         :item="item"
         :qGrand="qChild"
-        v-model="choose")
-  button(@click="toNext" v-if="buttonN < 5").index__button 次の問題へ
-  button(@click="toResult" v-else).index__button 診断結果を見る
+        v-model="answer")
+  button(@click="toResult" v-if="buttonN === 5").index__button 診断結果を見る
+  button(@click="toNext" v-else).index__button 次の問題へ
+
 </template>
 
 <script>
@@ -23,9 +24,22 @@ export default {
   },
   components: {
     QItem
-  },data() {
+  },
+  data() {
     return {
-      choose: ''
+      answer: [],
+      eu: "",
+      as: "",
+      us: "",
+      A: [],
+
+    }
+  },
+  computed: {
+    asia() {
+      this.as = this.answer.as
+      this.A.push(this.as)
+      return this.A.reduce((a, b) => a + b)
     }
   },
   methods: {
@@ -33,7 +47,6 @@ export default {
       this.$emit('upNumber', 1);
     },
     toNext() {
-      console.log(this.choose);
       this.$emit('upNumber', 1);
     }
   }
