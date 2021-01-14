@@ -32,8 +32,8 @@ export default {
   line-height: 1.5
 
 .result__country
+  font-family: $font-title
   font-size: 40px
-  font-weight: bold
 
 .result-img
   width: 160px
