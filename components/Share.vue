@@ -1,6 +1,6 @@
 <template lang="pug">
 .result__share
-  .result__share__title シェア
+  p シェア
   ul.result__share__container
     li.result__share__item
       - url = 'https://wataridori.netlify.app'
@@ -18,13 +18,14 @@
 </template>
 <style lang="sass">
   .result__share
+    font-weight: bold
     margin-top: 32px
 
   .result__share__container
     display: flex
-    width: 120px
+    width: 112px
     justify-content: space-between
-    margin: 8px auto 0
+    margin: 12px auto 0
 
   .result__share__item-link
 
@@ -32,9 +33,9 @@
     &::before
       content: ""
       display: block
-      width: 48px
-      height: 48px
-      margin-top: 5px
+      width: 28px
+      height: 28px
+      margin-top: 2px
       background-repeat: no-repeat
       background-size: contain
       background-image: url('~assets/img/twitter.svg')
@@ -43,8 +44,8 @@
     &::before
       content: ""
       display: block
-      width: 48px
-      height: 48px
+      width: 28px
+      height: 28px
       background-repeat: no-repeat
       background-size: contain
       background-image: url('~assets/img/LINE.svg')
