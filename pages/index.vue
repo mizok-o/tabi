@@ -19,8 +19,8 @@
             :value="item.sArea"
             v-model="answer[i]")
           p.q__list__item-text {{ item.text }}
-    button(@click="toResult" v-if="startClicked === 5").index__button 診断結果を見る
-    button(@click="shindanStart" v-else).index__button 次の問題へ
+    button(@click="toResult" v-if="startClicked === 5", :disabled="!answer[i]").index__button 診断結果を見る
+    button(@click="shindanStart" v-else :disabled="!answer[i]").index__button 次の問題へ
   <!-- 結果 -->
   .result__container(v-if="startClicked === 6")
     h1.result__title 診断結果
@@ -32,7 +32,6 @@
         br
         |です。
       .result-img
-    <!-- シェアボタン -->
     Share
     button(@click="reStart").index__button もう一度やる
 </template>
@@ -176,6 +175,10 @@ export default {
     background-size: contain
     background-repeat: no-repeat
     background-image: url('~assets/img/check.svg')
+
+.index__button[disabled]
+  opacity: .2
+  pointer-events: none
 
 /* 結果 */
 
