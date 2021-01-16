@@ -7,7 +7,7 @@
     p.start__sub 5つの質問であなたにおすすめの旅先（海外旅行）を診断します！
     button(@click="shindanStart").index__button 診断開始
   <!-- 質問 -->
-  .q__container(v-if="startClicked === (i + 1)" v-for="(q, i) in quizL", :key="i")
+  .q__container(v-if="startClicked === (i + 1)" v-for="(q, i) in quizList", :key="i")
     h1.q__title 第{{q.id}}問
     p.q__text {{ q.text }}
     .q__content
@@ -28,7 +28,7 @@
       p.result__text
         |あなたにおすすめの国は
         br
-        span.result__country 台湾
+        span.result__country {{ result.country }}
         br
         |です。
       .result-img
@@ -38,7 +38,8 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-import quizList from '../plugins/data'
+import quizList from '../plugins/question'
+import resultList from '../plugins/result'
 import Share from '~/components/Share.vue'
 
 export default {
@@ -49,9 +50,10 @@ export default {
   data() {
     return {
       startClicked: 0,
-      quizL: quizList,
+      quizList: quizList,
       answer: ["", "", "", ""],
-      result: ""
+      result: "",
+      resultList: resultList
     }
   },
   methods: {
@@ -60,25 +62,23 @@ export default {
     },
     toResult() {
       this.startClicked = 6
-
       console.log(this.answer);
 
       const as = this.answer.reduce((x, y) => x + y.as, 0)
       const eu = this.answer.reduce((x, y) => x + y.eu, 0)
       const us = this.answer.reduce((x, y) => x + y.us, 0)
-      // console.log(as);
-      // console.log(eu);
-      // console.log(us);
       const resultArray = [as, eu, us];
+      console.log(resultArray);
       const max = resultArray.reduce((a, b) => Math.max(a, b))
       console.log("max");
       console.log(max);
       const result = resultArray.filter(score => score === max);
       console.log("result");
       console.log(result);
-      const area = ["アジア", "ヨーロッパ", "アメリカ"]
-      this.result = area[resultArray.indexOf(max)]
+      console.log(this.resultList);
+      this.result = this.resultList[resultArray.indexOf(max)]
       console.log(this.result);
+
     },
     reStart() {
       return this.startClicked = 0
