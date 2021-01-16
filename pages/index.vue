@@ -97,7 +97,7 @@ export default {
   margin: auto
   padding: 32px 20px
   text-align: center
-  background-color: $color-letter
+  border: 5px solid $color-main
 
 /* スタート */
 
@@ -125,7 +125,7 @@ export default {
   cursor: pointer
   border-radius: 24px
   border: none
-  background-color: $color-base
+  border: 1px solid $color-main
 
 /* 診断1問目〜5問 */
 
@@ -146,7 +146,7 @@ export default {
   align-items: center
   margin-top: 24px
   border-radius: 28px
-  background-color: $color-base
+  border: 1px solid $color-main
 
 .q__list__item-radio
   position: absolute

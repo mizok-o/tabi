@@ -23,7 +23,7 @@
 
   .result__share__container
     display: flex
-    width: 112px
+    width: 96px
     justify-content: space-between
     margin: 12px auto 0
 
