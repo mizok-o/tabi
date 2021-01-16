@@ -31,7 +31,7 @@
         span.result__country {{ result.country }}
         br
         |です。
-      .result-img
+      img.result-img(:src="result.url")
     Share
     button(@click="reStart").index__button もう一度やる
 </template>
@@ -194,7 +194,5 @@ export default {
   width: 160px
   height: 160px
   margin: 24px auto 0
-  background-size: contain
-  background-image: url('~assets/img/result_1.jpg')
 
 </style>
