@@ -19,7 +19,7 @@
 <style lang="sass">
   .result__share
     font-weight: bold
-    margin-top: 32px
+    margin-top: 56px
 
   .result__share__container
     display: flex

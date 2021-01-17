@@ -31,8 +31,8 @@
         span.result__country {{ result.country }}
         br
         |です。
-      p.result__subtext {{ result.text }}
       img.result-img(:src="result.url")
+      p.result__subtext {{ result.text }}
     Share
     button(@click="reStart").index__button もう一度やる
 </template>
@@ -189,10 +189,6 @@ export default {
 .result__maintext
   margin-top: 32px
 
-.result__subtext
-  margin-top: 12px
-  font-size: 16px
-
 .result__country
   font-family: $font-title
   font-size: 40px
@@ -200,6 +196,11 @@ export default {
 .result-img
   width: 160px
   height: 160px
-  margin: 32px auto 0
+  margin: 24px auto 0
+
+.result__subtext
+  margin-top: 24px
+  font-size: 16px
+  text-align: left
 
 </style>
