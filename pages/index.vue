@@ -25,12 +25,13 @@
   .result__container(v-if="startClicked === 6")
     h1.result__title 診断結果
     .result__content
-      p.result__text
+      p.result__maintext
         |あなたにおすすめの国は
         br
         span.result__country {{ result.country }}
         br
         |です。
+      p.result__subtext {{ result.text }}
       img.result-img(:src="result.url")
     Share
     button(@click="reStart").index__button もう一度やる
@@ -64,10 +65,10 @@ export default {
       this.startClicked = 6
       console.log(this.answer);
 
-      const as = this.answer.reduce((x, y) => x + y.as, 0)
-      const eu = this.answer.reduce((x, y) => x + y.eu, 0)
-      const us = this.answer.reduce((x, y) => x + y.us, 0)
-      const resultArray = [as, eu, us];
+      const viet = this.answer.reduce((x, y) => x + y.viet, 0)
+      const thai = this.answer.reduce((x, y) => x + y.thai, 0)
+      const thaiw = this.answer.reduce((x, y) => x + y.thaiw, 0)
+      const resultArray = [viet, thai, thaiw];
       console.log(resultArray);
       const max = resultArray.reduce((a, b) => Math.max(a, b))
       console.log("max");
@@ -94,7 +95,7 @@ export default {
   max-height: 800px
   height: 100vh
   margin: auto
-  padding: 32px 20px
+  padding: 24px 20px
   text-align: center
   border: 5px solid $color-main
 
@@ -182,9 +183,15 @@ export default {
 
 /* 結果 */
 
-.result__text
-  margin-top: 24px
-  line-height: 1.5
+.result__title
+  font-size: 32px
+
+.result__maintext
+  margin-top: 32px
+
+.result__subtext
+  margin-top: 12px
+  font-size: 16px
 
 .result__country
   font-family: $font-title
@@ -193,6 +200,6 @@ export default {
 .result-img
   width: 160px
   height: 160px
-  margin: 24px auto 0
+  margin: 32px auto 0
 
 </style>

@@ -7,45 +7,45 @@ const quizList = [
         n: 1,
         text: "~5万円",
         sArea: {
-          viet: 0,
-          thai: 5,
-          thaiw: 0,
-          fr: 2,
-          neth: 2,
-          aus: 2,
-          bra: 6,
-          egy: 6,
-          irl: 6
+          viet: 10,
+          thai: 10,
+          thaiw: 10,
+          fr: 0,
+          neth: 0,
+          itly: 0,
+          anta: 0,
+          egy: 0,
+          eng: 0
         }
       },
       {
         n: 2,
         text: "5~10万円",
         sArea: {
-          viet: 0,
+          viet: 3,
           thai: 3,
-          thaiw: 0,
-          fr: 2,
-          neth: 2,
-          aus: 2,
-          bra: 6,
-          egy: 6,
-          irl: 6
+          thaiw: 3,
+          fr: 10,
+          neth: 10,
+          itly: 10,
+          anta: 0,
+          egy: 0,
+          eng: 0
         },
       },
       {
         n: 3,
         text: "10万円~",
         sArea: {
-          viet: 4,
+          viet: 0,
           thai: 0,
-          thaiw: 4,
-          fr: 2,
-          neth: 2,
-          aus: 2,
-          bra: 6,
-          egy: 6,
-          irl: 6
+          thaiw: 0,
+          fr: 5,
+          neth: 5,
+          itly: 5,
+          anta: 10,
+          egy: 10,
+          eng: 10
         }
       }
     ]
@@ -63,10 +63,10 @@ const quizList = [
           thaiw: 3,
           fr: 2,
           neth: 2,
-          aus: 2,
-          bra: 6,
+          itly: 2,
+          anta: 6,
           egy: 6,
-          irl: 6
+          eng: 6
         }
       },
       {
@@ -78,10 +78,10 @@ const quizList = [
           thaiw: 4,
           fr: 2,
           neth: 2,
-          aus: 2,
-          bra: 6,
+          itly: 2,
+          anta: 6,
           egy: 6,
-          irl: 6
+          eng: 6
         }
       },
       {
@@ -93,10 +93,10 @@ const quizList = [
           thaiw: 1,
           fr: 2,
           neth: 2,
-          aus: 2,
-          bra: 6,
+          itly: 2,
+          anta: 6,
           egy: 6,
-          irl: 6
+          eng: 6
         }
       },
       {
@@ -108,10 +108,10 @@ const quizList = [
           thaiw: 0,
           fr: 2,
           neth: 2,
-          aus: 2,
-          bra: 6,
+          itly: 2,
+          anta: 10,
           egy: 6,
-          irl: 6
+          eng: 6
         }
       }
     ]
@@ -138,10 +138,10 @@ const quizList = [
           thaiw: 0,
           fr: 2,
           neth: 2,
-          aus: 2,
-          bra: 6,
+          itly: 2,
+          anta: 6,
           egy: 6,
-          irl: 6
+          eng: 6
         }
       },
       {
@@ -153,10 +153,10 @@ const quizList = [
           thaiw: 0,
           fr: 2,
           neth: 2,
-          aus: 2,
-          bra: 6,
+          itly: 2,
+          anta: 6,
           egy: 6,
-          irl: 6
+          eng: 6
         }
       }
     ]
@@ -174,10 +174,10 @@ const quizList = [
           thaiw: 5,
           fr: 2,
           neth: 2,
-          aus: 2,
-          bra: 6,
+          itly: 2,
+          anta: 6,
           egy: 6,
-          irl: 6
+          eng: 6
         }
       },
       {
@@ -189,10 +189,10 @@ const quizList = [
           thaiw: 1,
           fr: 2,
           neth: 2,
-          aus: 2,
-          bra: 6,
+          itly: 2,
+          anta: 6,
           egy: 6,
-          irl: 6
+          eng: 6
         }
       },
       {
@@ -204,10 +204,10 @@ const quizList = [
           thaiw: 0,
           fr: 2,
           neth: 2,
-          aus: 2,
-          bra: 6,
+          itly: 2,
+          anta: 6,
           egy: 6,
-          irl: 6
+          eng: 6
         }
       },
       {
@@ -219,10 +219,10 @@ const quizList = [
           thaiw: 4,
           fr: 2,
           neth: 2,
-          aus: 2,
-          bra: 6,
+          itly: 2,
+          anta: 6,
           egy: 6,
-          irl: 6
+          eng: 6
         }
       }
     ]
@@ -240,10 +240,10 @@ const quizList = [
           thaiw: 1,
           fr: 2,
           neth: 2,
-          aus: 2,
-          bra: 6,
+          itly: 2,
+          anta: 6,
           egy: 6,
-          irl: 6
+          eng: 6
         }
       },
       {
@@ -255,10 +255,10 @@ const quizList = [
           thaiw: 0,
           fr: 2,
           neth: 2,
-          aus: 2,
-          bra: 6,
+          itly: 2,
+          anta: 6,
           egy: 6,
-          irl: 6
+          eng: 6
         }
       },
       {
@@ -270,10 +270,10 @@ const quizList = [
           thaiw: 4,
           fr: 2,
           neth: 2,
-          aus: 2,
-          bra: 6,
+          itly: 2,
+          anta: 6,
           egy: 6,
-          irl: 6
+          eng: 6
         }
       }
     ]
