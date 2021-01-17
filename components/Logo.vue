@@ -3,6 +3,7 @@ img.index__logo(src="~/assets/img/logo-top.png")
 </template>
 <style lang="sass">
 .index__logo
-  width: 280px
+  width: 160px
   margin: auto
+  opacity: 0
 </style>

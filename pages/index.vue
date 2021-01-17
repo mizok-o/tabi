@@ -110,6 +110,9 @@ export default {
   padding: 24px 20px
   text-align: center
   border: 5px solid $color-main
+  background-size: contain
+  background-repeat: no-repeat
+  background-image: url('~assets/img/back.png')
 
 /* スタート */
 
@@ -133,7 +136,7 @@ export default {
   width: 200px
   height: 48px
   font-weight: bold
-  color: $color-letter
+  color: $color-main
   cursor: pointer
   border-radius: 24px
   border: none
