@@ -2,7 +2,7 @@ const resultList = [
   {
     url: require("~/assets/img/result_01.jpg"),
     country: "ベトナム",
-    text: "北に行くほど食事が美味しくなる国!非現実的な体験をするなら持ってこいのカオスな国！女性にもおすすめできる治安が良い国！"
+    text: "北に行くほど食事が美味しくなる!非現実的な体験をするなら持ってこいのカオスな国！治安が良いので女性にもおすすめ！"
   },
   {
     url: require("~/assets/img/result_02.jpg"),
@@ -16,7 +16,7 @@ const resultList = [
   },
   {
     url: require("~/assets/img/result_04.jpg"),
-    country: "パリ-フランス",
+    country: "フランス",
     text: "定番なのに必ず予想を超えてくる凱旋門と夜のエッフェル塔はマスト！街の景観や晴れた日のセーヌ川がとても美しい、歩いてるだけで満喫できる街！"
   },
   {
@@ -26,12 +26,12 @@ const resultList = [
   },
   {
     url: require("~/assets/img/result_06.jpg"),
-    country: "ベネチア-イタリア",
+    country: "イタリア",
     text: "美男美女で有名な国イタリアのベネチア都市。世界遺産になるほど美しい街を見ながらの食事が鉄板"
   },
   {
     url: require("~/assets/img/result_07.jpg"),
-    country: "ロンドン-イギリス",
+    country: "イギリス",
     text: "ハリーポッターの世界のような歴史のある建物がたくさんある街！カフェ巡りや買い物が定番の楽しみ方！実はフィッシュアンドチップスは美味しいかも？"
   },
   {

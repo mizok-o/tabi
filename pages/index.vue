@@ -68,18 +68,30 @@ export default {
       const viet = this.answer.reduce((x, y) => x + y.viet, 0)
       const thai = this.answer.reduce((x, y) => x + y.thai, 0)
       const thaiw = this.answer.reduce((x, y) => x + y.thaiw, 0)
-      const resultArray = [viet, thai, thaiw];
+      const fr = this.answer.reduce((x, y) => x + y.fr, 0)
+      const neth = this.answer.reduce((x, y) => x + y.neth, 0)
+      const itly = this.answer.reduce((x, y) => x + y.itly, 0)
+      const eng = this.answer.reduce((x, y) => x + y.eng, 0)
+      const egy = this.answer.reduce((x, y) => x + y.egy, 0)
+      const anta = this.answer.reduce((x, y) => x + y.anta, 0)
+
+      const resultArray = [viet, thai, thaiw, fr, neth, itly, eng, egy, anta];
       console.log(resultArray);
+
       const max = resultArray.reduce((a, b) => Math.max(a, b))
       console.log("max");
       console.log(max);
-      const result = resultArray.filter(score => score === max);
+
+      let result = resultArray.filter(score => score === max);
       console.log("result");
       console.log(result);
-      console.log(this.resultList);
-      this.result = this.resultList[resultArray.indexOf(max)]
-      console.log(this.result);
 
+      if (result.length > 1) {
+        result = result[Math.floor(Math.random() * result.length)]
+      } else {
+        this.result = this.resultList[resultArray.indexOf(max)]
+        console.log(this.result);
+      }
     },
     reStart() {
       return this.startClicked = 0
