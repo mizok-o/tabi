@@ -5,38 +5,47 @@ const quizList = [
     questionList: [
       {
         n: 1,
-        text: "5万円以下",
+        text: "~5万円",
         sArea: {
-          eu: 0,
-          as: 5,
-          us: 0
+          viet: 20,
+          thai: 20,
+          thaiw: 20,
+          fr: 0,
+          neth: 0,
+          itly: 0,
+          eng: 0,
+          egy: 0,
+          anta: 0
         }
       },
       {
         n: 2,
         text: "5~10万円",
         sArea: {
-          eu: 0,
-          as: 3,
-          us: 0
+          viet: 3,
+          thai: 3,
+          thaiw: 0,
+          fr: 5,
+          neth: 5,
+          itly: 5,
+          eng: 3,
+          egy: 0,
+          anta: 0
         },
       },
       {
         n: 3,
-        text: "10~15万円",
+        text: "10万円~",
         sArea: {
-          eu: 4,
-          as: 0,
-          us: 4
-        }
-      },
-      {
-        n: 4,
-        text: "15万円以上",
-        sArea: {
-          eu: 2,
-          as: 0,
-          us: 2
+          viet: 0,
+          thai: 0,
+          thaiw: 0,
+          fr: 5,
+          neth: 5,
+          itly: 5,
+          eng: 5,
+          egy: 5,
+          anta: 10
         }
       }
     ]
@@ -49,36 +58,60 @@ const quizList = [
         n: 1,
         text: "春",
         sArea: {
-          eu: 3,
-          as: 0,
-          us: 3
+          viet: 5,
+          thai: 5,
+          thaiw: 5,
+          fr: 0,
+          neth: 0,
+          itly: 0,
+          eng: 0,
+          egy: 0,
+          anta: 0
         }
       },
       {
         n: 2,
         text: "夏",
         sArea: {
-          eu: 1,
-          as: 5,
-          us: 4
+          viet: 0,
+          thai: 0,
+          thaiw: 0,
+          fr: 5,
+          neth: 5,
+          itly: 5,
+          eng: 5,
+          egy: 5,
+          anta: 0
         }
       },
       {
         n: 3,
         text: "秋",
         sArea: {
-          eu: 4,
-          as: 0,
-          us: 1
+          viet: 0,
+          thai: 0,
+          thaiw: 0,
+          fr: 5,
+          neth: 5,
+          itly: 5,
+          eng: 5,
+          egy: 5,
+          anta: 0
         }
       },
       {
         n: 4,
         text: "冬",
         sArea: {
-          eu: 0,
-          as: 2,
-          us: 0
+          viet: 3,
+          thai: 3,
+          thaiw: 3,
+          fr: 0,
+          neth: 0,
+          itly: 0,
+          eng: 3,
+          egy: 5,
+          anta: 10
         }
       }
     ]
@@ -89,29 +122,47 @@ const quizList = [
     questionList: [
       {
         n: 1,
-        text: "家族",
+        text: "友達",
         sArea: {
-          eu: 5,
-          as: 2,
-          us: 2
+          viet: 0,
+          thai: 3,
+          thaiw: 0,
+          fr: 5,
+          neth: 5,
+          itly: 5,
+          eng: 5,
+          egy: 0,
+          anta: 0
         }
       },
       {
         n: 2,
-        text: "友達",
+        text: "恋人",
         sArea: {
-          eu: 2,
-          as: 3,
-          us: 0
+          viet: 5,
+          thai: 0,
+          thaiw: 5,
+          fr: 5,
+          neth: 5,
+          itly: 0,
+          eng: 5,
+          egy: 0,
+          anta: 0
         }
       },
       {
         n: 3,
         text: "ひとり",
         sArea: {
-          eu: 0,
-          as: 4,
-          us: 0
+          viet: 0,
+          thai: 5,
+          thaiw: 5,
+          fr: 0,
+          neth: 0,
+          itly: 0,
+          eng: 0,
+          egy: 5,
+          anta: 5
         }
       }
     ]
@@ -124,36 +175,60 @@ const quizList = [
         n: 1,
         text: "世界遺産",
         sArea: {
-          eu: 1,
-          as: 3,
-          us: 5
+          viet: 0,
+          thai: 0,
+          thaiw: 0,
+          fr: 0,
+          neth: 5,
+          itly: 5,
+          eng: 5,
+          egy: 5,
+          anta: 0
         }
       },
       {
         n: 2,
-        text: "買い物",
+        text: "自然",
         sArea: {
-          eu: 5,
-          as: 3,
-          us: 1
+          viet: 5,
+          thai: 0,
+          thaiw: 0,
+          fr: 0,
+          neth: 0,
+          itly: 5,
+          eng: 5,
+          egy: 5,
+          anta: 5
         }
       },
       {
         n: 3,
         text: "食事",
         sArea: {
-          eu: 4,
-          as: 2,
-          us: 0
+          viet: 5,
+          thai: 3,
+          thaiw: 5,
+          fr: 5,
+          neth: 3,
+          itly: 5,
+          eng: 3,
+          egy: 0,
+          anta: 0
         }
       },
       {
         n: 4,
         text: "街の景観",
         sArea: {
-          eu: 0,
-          as: 5,
-          us: 4
+          viet: 0,
+          thai: 0,
+          thaiw: 0,
+          fr: 5,
+          neth: 5,
+          itly: 5,
+          eng: 5,
+          egy: 0,
+          anta: 0
         }
       }
     ]
@@ -166,27 +241,45 @@ const quizList = [
         n: 1,
         text: "衛生面",
         sArea: {
-          eu: 4,
-          as: 0,
-          us: 1
+          viet: 0,
+          thai: 3,
+          thaiw: 0,
+          fr: 3,
+          neth: 5,
+          itly: 3,
+          eng: 5,
+          egy: 0,
+          anta: 0
         }
       },
       {
         n: 2,
         text: "治安",
         sArea: {
-          eu: 4,
-          as: 2,
-          us: 0
+          viet: 5,
+          thai: 3,
+          thaiw: 5,
+          fr: 3,
+          neth: 3,
+          itly: 0,
+          eng: 5,
+          egy: 0,
+          anta: 5
         }
       },
       {
         n: 3,
         text: "言語",
         sArea: {
-          eu: 2,
-          as: 5,
-          us: 4
+          viet: 3,
+          thai: 0,
+          thaiw: 5,
+          fr: 0,
+          neth: 3,
+          itly: 0,
+          eng: 3,
+          egy: 0,
+          anta: 0
         }
       }
     ]

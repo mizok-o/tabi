@@ -7,6 +7,7 @@
 html
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif
   font-size: 18px
+  font-weight: 500
   word-spacing: 1px
   line-height: 1.5
   -ms-text-size-adjust: 100%
@@ -14,7 +15,7 @@ html
   -moz-osx-font-smoothing: grayscale
   -webkit-font-smoothing: antialiased
   box-sizing: border-box
-  background-color: $color-base
+  background-color: #FFeFd6
   color: $color-main
 
 *,

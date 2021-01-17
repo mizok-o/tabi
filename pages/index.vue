@@ -25,13 +25,14 @@
   .result__container(v-if="startClicked === 6")
     h1.result__title 診断結果
     .result__content
-      p.result__text
+      p.result__maintext
         |あなたにおすすめの国は
         br
         span.result__country {{ result.country }}
         br
         |です。
       img.result-img(:src="result.url")
+      p.result__subtext {{ result.text }}
     Share
     button(@click="reStart").index__button もう一度やる
 </template>
@@ -64,21 +65,33 @@ export default {
       this.startClicked = 6
       console.log(this.answer);
 
-      const as = this.answer.reduce((x, y) => x + y.as, 0)
-      const eu = this.answer.reduce((x, y) => x + y.eu, 0)
-      const us = this.answer.reduce((x, y) => x + y.us, 0)
-      const resultArray = [as, eu, us];
+      const viet = this.answer.reduce((x, y) => x + y.viet, 0)
+      const thai = this.answer.reduce((x, y) => x + y.thai, 0)
+      const thaiw = this.answer.reduce((x, y) => x + y.thaiw, 0)
+      const fr = this.answer.reduce((x, y) => x + y.fr, 0)
+      const neth = this.answer.reduce((x, y) => x + y.neth, 0)
+      const itly = this.answer.reduce((x, y) => x + y.itly, 0)
+      const eng = this.answer.reduce((x, y) => x + y.eng, 0)
+      const egy = this.answer.reduce((x, y) => x + y.egy, 0)
+      const anta = this.answer.reduce((x, y) => x + y.anta, 0)
+
+      const resultArray = [viet, thai, thaiw, fr, neth, itly, eng, egy, anta];
       console.log(resultArray);
+
       const max = resultArray.reduce((a, b) => Math.max(a, b))
       console.log("max");
       console.log(max);
-      const result = resultArray.filter(score => score === max);
+
+      let result = resultArray.filter(score => score === max);
       console.log("result");
       console.log(result);
-      console.log(this.resultList);
-      this.result = this.resultList[resultArray.indexOf(max)]
-      console.log(this.result);
 
+      if (result.length > 1) {
+        result = result[Math.floor(Math.random() * result.length)]
+      } else {
+        this.result = this.resultList[resultArray.indexOf(max)]
+        console.log(this.result);
+      }
     },
     reStart() {
       return this.startClicked = 0
@@ -94,7 +107,7 @@ export default {
   max-height: 800px
   height: 100vh
   margin: auto
-  padding: 32px 20px
+  padding: 24px 20px
   text-align: center
   border: 5px solid $color-main
 
@@ -182,9 +195,11 @@ export default {
 
 /* 結果 */
 
-.result__text
-  margin-top: 24px
-  line-height: 1.5
+.result__title
+  font-size: 32px
+
+.result__maintext
+  margin-top: 32px
 
 .result__country
   font-family: $font-title
@@ -194,5 +209,10 @@ export default {
   width: 160px
   height: 160px
   margin: 24px auto 0
+
+.result__subtext
+  margin-top: 24px
+  font-size: 16px
+  text-align: left
 
 </style>
