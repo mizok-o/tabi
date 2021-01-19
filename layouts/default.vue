@@ -16,7 +16,7 @@ html
   -moz-osx-font-smoothing: grayscale
   -webkit-font-smoothing: antialiased
   box-sizing: border-box
-  background-color: #F2DDD0
+  background-color: #f6f6f6
   color: $color-main
 
 *,

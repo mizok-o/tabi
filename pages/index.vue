@@ -2,8 +2,7 @@
 .index__container
   <!-- スタート画面 -->
   .start__contaienr(v-if="startClicked === 0")
-    logo
-    h1.start__title みんなの旅先診断
+    h1.start__title
     p.start__sub 5つの質問であなたにおすすめの旅先（海外旅行）を診断します！
     button(@click="shindanStart").index__button 診断開始
   <!-- 質問 -->
@@ -42,14 +41,12 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 import quizList from '../plugins/question'
 import resultList from '../plugins/result'
 import Share from '~/components/Share.vue'
 
 export default {
   components:{
-    Logo,
     Share
   },
   data() {
@@ -110,7 +107,7 @@ export default {
   max-height: 800px
   height: 100vh
   margin: auto
-  padding: 24px 20px
+  padding: 72px 20px 24px
   text-align: center
   border: 5px solid $color-main
 
@@ -119,11 +116,12 @@ export default {
 .start__contaienr
   text-align: center
 
-
 .start__title
-  margin-top: 40px
-  font-family: $font-title
-  font-size: 32px
+  height: 32px
+  margin-top: 32px
+  background-size: auto
+  background-repeat: no-repeat
+  background-image: url('~assets/img/top-title.svg')
 
 .start__sub
   margin-top: 24px
