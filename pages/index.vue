@@ -7,7 +7,11 @@
     p.start__sub 5つの質問であなたにおすすめの旅先（海外旅行）を診断します！
     button(@click="shindanStart").index__button 診断開始
   <!-- 質問 -->
-  .q__container(v-if="startClicked === (i + 1)" v-for="(q, i) in quizList", :key="i")
+  .q__container(
+    v-if="startClicked === (i + 1)"
+    v-for="(q, i) in quizList"
+    :class="'q__container-' + i"
+    :key="i")
     h1.q__title 第{{q.id}}問
     p.q__text {{ q.text }}
     .q__content
@@ -88,10 +92,9 @@ export default {
 
       if (result.length > 1) {
         result = result[Math.floor(Math.random() * result.length)]
-      } else {
+      }
         this.result = this.resultList[resultArray.indexOf(max)]
         console.log(this.result);
-      }
     },
     reStart() {
       return this.startClicked = 0
@@ -110,14 +113,12 @@ export default {
   padding: 24px 20px
   text-align: center
   border: 5px solid $color-main
-  background-size: contain
-  background-repeat: no-repeat
-  background-image: url('~assets/img/back.png')
 
 /* スタート */
 
 .start__contaienr
   text-align: center
+
 
 .start__title
   margin-top: 40px
@@ -202,7 +203,7 @@ export default {
   font-size: 32px
 
 .result__maintext
-  margin-top: 32px
+  margin-top: 20px
 
 .result__country
   font-family: $font-title
