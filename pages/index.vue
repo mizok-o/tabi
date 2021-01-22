@@ -1,43 +1,44 @@
 <template lang="pug">
 .index__container
   <!-- スタート画面 -->
-  .start__contaienr(v-if="startClicked === 0")
-    h1.start__title
-    p.start__sub 5つの質問であなたにおすすめの旅先（海外旅行）を診断します！
-    button(@click="shindanStart").index__button 診断開始
-  <!-- 質問 -->
-  .q__container(
-    v-if="startClicked === (i + 1)"
-    v-for="(q, i) in quizList"
-    :class="'q__container-' + i"
-    :key="i")
-    h1.q__title 第{{q.id}}問
-    p.q__text {{ q.text }}
-    .q__content
-      ul.q__list
-        li.q__list__item(v-for="(item, index) in q.questionList", :key="'q-' + item.n")
-          input.q__list__item-radio(
-            type="radio"
-            :name="'que-' + q.id"
-            :value="item.sArea"
-            v-model="answer[i]")
-          p.q__list__item-text {{ item.text }}
-    button(@click="toResult" v-if="startClicked === 5", :disabled="!answer[i]").index__button 診断結果を見る
-    button(@click="shindanStart" v-else :disabled="!answer[i]").index__button 次の問題へ
-  <!-- 結果 -->
-  .result__container(v-if="startClicked === 6")
-    h1.result__title 診断結果
-    .result__content
-      p.result__maintext
-        |あなたにおすすめの国は
-        br
-        span.result__country {{ result.country }}
-        br
-        |です。
-      img.result-img(:src="result.url")
-      p.result__subtext {{ result.text }}
-    Share
-    button(@click="reStart").index__button もう一度やる
+  transition(name="fade" mode="out-in" @before-enter="beforeEnter")
+    .start__contaienr(v-if="startClicked === 0")
+      h1.start__title
+      p.start__sub 5つの質問であなたにおすすめの旅先（海外旅行）を診断します！
+      button(@click="shindanStart").index__button 診断開始
+    <!-- 質問 -->
+    .q__container(
+      v-if="startClicked === (i + 1)"
+      v-for="(q, i) in quizList"
+      :class="'q__container-' + i"
+      :key="i")
+      h1.q__title 第{{q.id}}問
+      p.q__text {{ q.text }}
+      .q__content
+        ul.q__list
+          li.q__list__item(v-for="(item, index) in q.questionList", :key="'q-' + item.n")
+            input.q__list__item-radio(
+              type="radio"
+              :name="'que-' + q.id"
+              :value="item.sArea"
+              v-model="answer[i]")
+            p.q__list__item-text {{ item.text }}
+      button(@click="toResult" v-if="startClicked === 5", :disabled="!answer[i]").index__button 診断結果を見る
+      button(@click="shindanStart" v-else :disabled="!answer[i]").index__button 次の問題へ
+    <!-- 結果 -->
+    .result__container(v-if="startClicked === 6")
+      h1.result__title 診断結果
+      .result__content
+        p.result__maintext
+          |あなたにおすすめの国は
+          br
+          span.result__country {{ result.country }}
+          br
+          |です。
+        img.result-img(:src="result.url")
+        p.result__subtext {{ result.text }}
+      Share
+      button(@click="reStart").index__button もう一度やる
 </template>
 
 <script>
@@ -95,6 +96,9 @@ export default {
     },
     reStart() {
       return this.startClicked = 0
+    },
+    beforeEnter() {
+
     }
   }
 }
@@ -102,6 +106,19 @@ export default {
 </script>
 
 <style lang="sass">
+.fade-enter
+  transform: translateX(64px)
+
+.fade-leave-active
+  transition: all .2s cubic-bezier(0.11, 0, 0.5, 0)
+
+.fade-enter-active
+  transition: all .3s cubic-bezier(0.5, 1, 0.89, 1)
+
+.result__container
+  &.fade-enter-active
+    transition: all 1s cubic-bezier(0.5, 1, 0.89, 1)
+
 .index__container
   max-width: 375px
   max-height: 800px
@@ -114,6 +131,8 @@ export default {
 /* スタート */
 
 .start__contaienr
+  width: 100%
+  height: 100%
   text-align: center
 
 .start__title
@@ -142,6 +161,10 @@ export default {
   border: 1px solid $color-main
 
 /* 診断1問目〜5問 */
+
+.q__container
+  width: 100%
+  height: 100%
 
 .q__text
   margin-top: 24px
