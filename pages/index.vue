@@ -1,7 +1,7 @@
 <template lang="pug">
 .index__container
   <!-- スタート画面 -->
-  transition(name="fade" mode="out-in" @before-enter="beforeEnter")
+  transition(name="fade" mode="out-in" @after-enter="afterEnter")
     .start__contaienr(v-if="startClicked === 0")
       h1.start__title
       p.start__sub 5つの質問であなたにおすすめの旅先（海外旅行）を診断します！
@@ -97,7 +97,7 @@ export default {
     reStart() {
       return this.startClicked = 0
     },
-    beforeEnter() {
+    afterEnter() {
 
     }
   }
@@ -106,18 +106,15 @@ export default {
 </script>
 
 <style lang="sass">
-.fade-enter
-  transform: translateX(64px)
-
-.fade-leave-active
-  transition: all .2s cubic-bezier(0.11, 0, 0.5, 0)
-
 .fade-enter-active
-  transition: all .3s cubic-bezier(0.5, 1, 0.89, 1)
+  animation: enter .5s cubic-bezier(0.5, 1, 0.89, 1)
 
-.result__container
-  &.fade-enter-active
-    transition: all 1s cubic-bezier(0.5, 1, 0.89, 1)
+@keyframes enter
+  0%
+    transform: translateX(64px)
+
+  80%
+    transform: translateX(0)
 
 .index__container
   max-width: 375px
@@ -126,7 +123,6 @@ export default {
   margin: auto
   padding: 72px 20px 24px
   text-align: center
-  border: 5px solid $color-main
 
 /* スタート */
 
@@ -165,6 +161,7 @@ export default {
 .q__container
   width: 100%
   height: 100%
+  background-color: #ffffff
 
 .q__text
   margin-top: 24px
@@ -181,7 +178,7 @@ export default {
   height: 56px
   justify-content: center
   align-items: center
-  margin-top: 24px
+  margin: 24px auto 0
   border-radius: 28px
   border: 1px solid $color-main
 
