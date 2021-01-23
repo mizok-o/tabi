@@ -12,7 +12,7 @@ const resultList = [
   {
     url: require("~/assets/img/result_03.jpg"),
     country: "台湾",
-    text: ""
+    text: "日本から3〜4時間ですぐ着く初心者におすすめ旅先！小籠包とタピオカは世界一のクオリティと安さ"
   },
   {
     url: require("~/assets/img/result_04.jpg"),

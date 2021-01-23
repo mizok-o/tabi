@@ -1,5 +1,6 @@
 <template lang="pug">
 .index
+  //.index-background
   nuxt
 </template>
 
@@ -15,7 +16,7 @@ html
   -moz-osx-font-smoothing: grayscale
   -webkit-font-smoothing: antialiased
   box-sizing: border-box
-  background-color: #FFeFd6
+  background-color: #f6f6f6
   color: $color-main
 
 *,
@@ -26,5 +27,16 @@ html
 
 .index
   position: relative
+
+/* .index-background
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 100%
+  height: 400px
+  background-size: auto
+  background-repeat: no-repeat
+  background-image: url('~assets/img/orange.png')
+  z-index: -1 */
 
 </style>

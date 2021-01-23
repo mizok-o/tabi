@@ -1,51 +1,53 @@
 <template lang="pug">
 .index__container
   <!-- スタート画面 -->
-  .start__contaienr(v-if="startClicked === 0")
-    logo
-    h1.start__title みんなの旅先診断
-    p.start__sub 5つの質問であなたにおすすめの旅先（海外旅行）を診断します！
-    button(@click="shindanStart").index__button 診断開始
-  <!-- 質問 -->
-  .q__container(v-if="startClicked === (i + 1)" v-for="(q, i) in quizList", :key="i")
-    h1.q__title 第{{q.id}}問
-    p.q__text {{ q.text }}
-    .q__content
-      ul.q__list
-        li.q__list__item(v-for="(item, index) in q.questionList", :key="'q-' + item.n")
-          input.q__list__item-radio(
-            type="radio"
-            :name="'que-' + q.id"
-            :value="item.sArea"
-            v-model="answer[i]")
-          p.q__list__item-text {{ item.text }}
-    button(@click="toResult" v-if="startClicked === 5", :disabled="!answer[i]").index__button 診断結果を見る
-    button(@click="shindanStart" v-else :disabled="!answer[i]").index__button 次の問題へ
-  <!-- 結果 -->
-  .result__container(v-if="startClicked === 6")
-    h1.result__title 診断結果
-    .result__content
-      p.result__maintext
-        |あなたにおすすめの国は
-        br
-        span.result__country {{ result.country }}
-        br
-        |です。
-      img.result-img(:src="result.url")
-      p.result__subtext {{ result.text }}
-    Share
-    button(@click="reStart").index__button もう一度やる
+  transition(name="fade" mode="out-in" @after-enter="afterEnter")
+    .start__contaienr(v-if="startClicked === 0")
+      h1.start__title
+      p.start__sub 5つの質問であなたにおすすめの旅先（海外旅行）を診断します！
+      button(@click="shindanStart").index__button 診断開始
+    <!-- 質問 -->
+    .q__container(
+      v-if="startClicked === (i + 1)"
+      v-for="(q, i) in quizList"
+      :class="'q__container-' + i"
+      :key="i")
+      h1.q__title 第{{q.id}}問
+      p.q__text {{ q.text }}
+      .q__content
+        ul.q__list
+          li.q__list__item(v-for="(item, index) in q.questionList", :key="'q-' + item.n")
+            input.q__list__item-radio(
+              type="radio"
+              :name="'que-' + q.id"
+              :value="item.sArea"
+              v-model="answer[i]")
+            p.q__list__item-text {{ item.text }}
+      button(@click="toResult" v-if="startClicked === 5", :disabled="!answer[i]").index__button 診断結果を見る
+      button(@click="shindanStart" v-else :disabled="!answer[i]").index__button 次の問題へ
+    <!-- 結果 -->
+    .result__container(v-if="startClicked === 6")
+      h1.result__title 診断結果
+      .result__content
+        p.result__maintext
+          |あなたにおすすめの国は
+          br
+          span.result__country {{ result.country }}
+          br
+          |です。
+        img.result-img(:src="result.url")
+        p.result__subtext {{ result.text }}
+      Share
+      button(@click="reStart").index__button もう一度やる
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 import quizList from '../plugins/question'
 import resultList from '../plugins/result'
 import Share from '~/components/Share.vue'
 
 export default {
   components:{
-    Logo,
     Share
   },
   data() {
@@ -88,13 +90,15 @@ export default {
 
       if (result.length > 1) {
         result = result[Math.floor(Math.random() * result.length)]
-      } else {
+      }
         this.result = this.resultList[resultArray.indexOf(max)]
         console.log(this.result);
-      }
     },
     reStart() {
       return this.startClicked = 0
+    },
+    afterEnter() {
+
     }
   }
 }
@@ -102,24 +106,37 @@ export default {
 </script>
 
 <style lang="sass">
+.fade-enter-active
+  animation: enter .5s cubic-bezier(0.5, 1, 0.89, 1)
+
+@keyframes enter
+  0%
+    transform: translateX(64px)
+
+  80%
+    transform: translateX(0)
+
 .index__container
   max-width: 375px
   max-height: 800px
   height: 100vh
   margin: auto
-  padding: 24px 20px
+  padding: 72px 20px 24px
   text-align: center
-  border: 5px solid $color-main
 
 /* スタート */
 
 .start__contaienr
+  width: 100%
+  height: 100%
   text-align: center
 
 .start__title
-  margin-top: 40px
-  font-family: $font-title
-  font-size: 32px
+  height: 32px
+  margin-top: 32px
+  background-size: auto
+  background-repeat: no-repeat
+  background-image: url('~assets/img/top-title.svg')
 
 .start__sub
   margin-top: 24px
@@ -133,13 +150,17 @@ export default {
   width: 200px
   height: 48px
   font-weight: bold
-  color: $color-letter
+  color: $color-main
   cursor: pointer
   border-radius: 24px
   border: none
   border: 1px solid $color-main
 
 /* 診断1問目〜5問 */
+
+.q__container
+  width: 100%
+  height: 100%
 
 .q__text
   margin-top: 24px
@@ -156,7 +177,7 @@ export default {
   height: 56px
   justify-content: center
   align-items: center
-  margin-top: 24px
+  margin: 24px auto 0
   border-radius: 28px
   border: 1px solid $color-main
 
@@ -199,7 +220,7 @@ export default {
   font-size: 32px
 
 .result__maintext
-  margin-top: 32px
+  margin-top: 20px
 
 .result__country
   font-family: $font-title
