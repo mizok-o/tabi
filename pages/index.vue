@@ -161,7 +161,6 @@ export default {
 .q__container
   width: 100%
   height: 100%
-  background-color: #ffffff
 
 .q__text
   margin-top: 24px
