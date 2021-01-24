@@ -140,6 +140,9 @@ export default {
   margin: auto
   padding: 72px 20px 24px
   text-align: center
+  border: 3px solid $color-accent
+  @media screen and (max-width: 375px)
+    border: none
 
 /* スタート */
 
@@ -198,8 +201,10 @@ export default {
 
 .sImg-5
   bottom: 385px
-  left: 322px
+  left: 317px
   transition-delay: 2s
+  @media screen and (max-width: 375px)
+    left: 322px
 
 .index__button
   width: 200px
