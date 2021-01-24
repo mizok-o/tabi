@@ -3,8 +3,8 @@
   p シェア
   ul.result__share__container
     li.result__share__item
-      - url = 'https://wataridori.netlify.app'
-      - text = 'みたらし'
+      - url = 'https://shindan-4f59d.firebaseapp.com'
+      - text = '旅診断'
       - hashtags = '診断アプリ'
       a.result__share__item-link.share-twitter(
         href=`https://twitter.com/share?url=${url}&text=${text}&hashtags=${hashtags}`
