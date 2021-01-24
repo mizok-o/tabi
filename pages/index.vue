@@ -5,7 +5,7 @@
     .start__contaienr(v-if="startClicked === 0")
       h1.start__title
       p.start__sub 5つの質問であなたにおすすめの海外旅行の旅先を診断します！
-      .start__footprint#foot
+      #foot
         img.start__footprint-img(
         v-for="(src, n) in urlList"
         :key="'sImg' + n"
@@ -136,8 +136,6 @@ export default {
 .index__container
   position: relative
   max-width: 375px
-  height: 670px
-  margin: auto
   padding: 48px 20px 24px
   text-align: center
   border: 3px solid $color-accent
@@ -165,6 +163,10 @@ export default {
   font-size: 18px
   font-weight: bold
 
+.foot-appear
+  width: 100%
+  height: 232px
+
 .start__footprint-img
   position: absolute
   width: 54px
@@ -177,32 +179,32 @@ export default {
     opacity: 1
 
 .sImg-0
-  bottom: 352px
+  bottom: 202px
   left: 0
   transition-delay: .5s
 
 .sImg-1
-  bottom: 328px
+  bottom: 178px
   left: 67px
   transition-delay: .9s
 
 .sImg-2
-  bottom: 357px
+  bottom: 207px
   left: 128px
   transition-delay: 1.1s
 
 .sImg-3
-  bottom: 341px
+  bottom: 191px
   left: 200px
   transition-delay: 1.4s
 
 .sImg-4
-  bottom: 388px
+  bottom: 238px
   left: 256px
   transition-delay: 1.6s
 
 .sImg-5
-  bottom: 385px
+  bottom: 235px
   left: 317px
   transition-delay: 2s
   @media screen and (max-width: 375px)
@@ -211,6 +213,7 @@ export default {
 .index__button
   width: 200px
   height: 48px
+  margin-top: 96px
   font-weight: bold
   color: $color-main
   cursor: pointer
@@ -219,10 +222,7 @@ export default {
   border: 1px solid $color-main
 
 .start__button
-  position: absolute
-  bottom: 48px
-  left: 50%
-  transform: translateX(-50%)
+  margin-top: 96px
 
 
 /* 診断1問目〜5問 */
@@ -296,6 +296,8 @@ export default {
   flex-direction: column
   justify-content: space-between
   align-items: center
+  .index__button
+    margin-top: 32px
 
 .result__title
   font-weight: bold
