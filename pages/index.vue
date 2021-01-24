@@ -4,17 +4,23 @@
   transition(name="fade" mode="out-in" @after-enter="afterEnter")
     .start__contaienr(v-if="startClicked === 0")
       h1.start__title
-      p.start__sub 5つの質問であなたにおすすめの旅先（海外旅行）を診断します！
-      button(@click="shindanStart").index__button 診断開始
+      p.start__sub 5つの質問であなたにおすすめの海外旅行の旅先を診断します！
+      .start__footprint#foot
+        img.start__footprint-img(
+        v-for="(src, n) in urlList"
+        :key="'sImg' + n"
+        :class="'sImg-' + n"
+        :src="src")
+      button.index__button.start__button(@click="shindanStart") 診断開始
     <!-- 質問 -->
     .q__container(
       v-if="startClicked === (i + 1)"
       v-for="(q, i) in quizList"
       :class="'q__container-' + i"
       :key="i")
-      h1.q__title 第{{q.id}}問
-      p.q__text {{ q.text }}
       .q__content
+        h1.q__title 第{{q.id}}問
+        p.q__text {{ q.text }}
         ul.q__list
           li.q__list__item(v-for="(item, index) in q.questionList", :key="'q-' + item.n")
             input.q__list__item-radio(
@@ -27,17 +33,16 @@
       button(@click="shindanStart" v-else :disabled="!answer[i]").index__button 次の問題へ
     <!-- 結果 -->
     .result__container(v-if="startClicked === 6")
-      h1.result__title 診断結果
       .result__content
+        h1.result__title 診断結果
         p.result__maintext
           |あなたにおすすめの国は
           br
-          span.result__country {{ result.country }}
-          br
+          span(:style="{ backgroundImage: 'url(' + result.country + ')' }").result__country
           |です。
-        img.result-img(:src="result.url")
+        img.result-img(:src="result.img")
         p.result__subtext {{ result.text }}
-      Share
+        Share
       button(@click="reStart").index__button もう一度やる
 </template>
 
@@ -53,10 +58,23 @@ export default {
   data() {
     return {
       startClicked: 0,
+      urlList: [
+        require("~/assets/img/footprint/foot01.svg"),
+        require("~/assets/img/footprint/foot02.svg"),
+        require("~/assets/img/footprint/foot03.svg"),
+        require("~/assets/img/footprint/foot04.svg"),
+        require("~/assets/img/footprint/foot05.svg"),
+        require("~/assets/img/footprint/foot06.svg")
+      ],
       quizList: quizList,
       answer: ["", "", "", ""],
       result: "",
       resultList: resultList
+    }
+  },
+  mounted() {
+    window.onload = () => {
+      document.getElementById('foot').className = 'foot-appear'
     }
   },
   methods: {
@@ -98,7 +116,6 @@ export default {
       return this.startClicked = 0
     },
     afterEnter() {
-
     }
   }
 }
@@ -117,12 +134,14 @@ export default {
     transform: translateX(0)
 
 .index__container
+  position: relative
   max-width: 375px
   max-height: 800px
   height: 100vh
   margin: auto
   padding: 72px 20px 24px
   text-align: center
+  border: 3px solid $color-accent
 
 /* スタート */
 
@@ -133,20 +152,59 @@ export default {
 
 .start__title
   height: 32px
-  margin-top: 32px
+  margin-top: 48px
   background-size: auto
   background-repeat: no-repeat
   background-image: url('~assets/img/top-title.svg')
 
 .start__sub
-  margin-top: 24px
+  margin-top: 32px
+  text-align: center
   font-size: 18px
+  font-weight: bold
+
+.start__footprint-img
+  position: absolute
+  width: 54px
+  height: 32px
+  opacity: 0
+  transition: opacity .3s cubic-bezier(0.5, 0, 0.75, 0)
+
+.foot-appear
+  .start__footprint-img
+    opacity: 1
+
+.sImg-0
+  bottom: 312px
+  left: 0
+  transition-delay: .5s
+
+.sImg-1
+  bottom: 288px
+  left: 67px
+  transition-delay: .9s
+
+.sImg-2
+  bottom: 317px
+  left: 128px
+  transition-delay: 1.1s
+
+.sImg-3
+  bottom: 301px
+  left: 200px
+  transition-delay: 1.4s
+
+.sImg-4
+  bottom: 348px
+  left: 251px
+  transition-delay: 1.6s
+
+.sImg-5
+  bottom: 345px
+  left: 316px
+  transition-delay: 2s
 
 .index__button
-  position: absolute
-  bottom: 48px
-  left: 50%
-  transform: translateX(-50%)
   width: 200px
   height: 48px
   font-weight: bold
@@ -156,18 +214,29 @@ export default {
   border: none
   border: 1px solid $color-main
 
+.start__button
+  position: absolute
+  bottom: 72px
+  left: 50%
+  transform: translateX(-50%)
+
 /* 診断1問目〜5問 */
 
 .q__container
+  display: flex
   width: 100%
   height: 100%
+  padding-bottom: 48px
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
 
 .q__text
   margin-top: 24px
   font-size: 20px
   font-weight: bold
 
-.q__content
+.q__list
   margin: 64px 0 0
 
 .q__list__item
@@ -216,15 +285,25 @@ export default {
 
 /* 結果 */
 
+.result__container
+  display: flex
+  height: 650px
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+
 .result__title
-  font-size: 32px
+  font-weight: bold
 
 .result__maintext
-  margin-top: 20px
-
-.result__country
-  font-family: $font-title
-  font-size: 40px
+  margin-top: 8px
+  span
+    display: block
+    width: 162px
+    height: 40px
+    margin: 8px auto
+    background-size: contain
+    background-repeat: no-repeat
 
 .result-img
   width: 160px
@@ -232,7 +311,7 @@ export default {
   margin: 24px auto 0
 
 .result__subtext
-  margin-top: 24px
+  margin-top: 16px
   font-size: 16px
   text-align: left
 

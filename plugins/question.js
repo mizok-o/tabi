@@ -5,7 +5,7 @@ const quizList = [
     questionList: [
       {
         n: 1,
-        text: "~5万円",
+        text: "5万円まで",
         sArea: {
           viet: 20,
           thai: 20,
@@ -35,7 +35,7 @@ const quizList = [
       },
       {
         n: 3,
-        text: "10万円~",
+        text: "10万円以上！",
         sArea: {
           viet: 0,
           thai: 0,
