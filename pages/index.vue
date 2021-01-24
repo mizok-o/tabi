@@ -136,12 +136,10 @@ export default {
 .index__container
   position: relative
   max-width: 375px
-  max-height: 800px
-  height: 100vh
+  height: 670px
   margin: auto
   padding: 72px 20px 24px
   text-align: center
-  border: 3px solid $color-accent
 
 /* スタート */
 
@@ -152,7 +150,6 @@ export default {
 
 .start__title
   height: 32px
-  margin-top: 48px
   background-size: auto
   background-repeat: no-repeat
   background-image: url('~assets/img/top-title.svg')
@@ -175,33 +172,33 @@ export default {
     opacity: 1
 
 .sImg-0
-  bottom: 312px
+  bottom: 352px
   left: 0
   transition-delay: .5s
 
 .sImg-1
-  bottom: 288px
+  bottom: 328px
   left: 67px
   transition-delay: .9s
 
 .sImg-2
-  bottom: 317px
+  bottom: 357px
   left: 128px
   transition-delay: 1.1s
 
 .sImg-3
-  bottom: 301px
+  bottom: 341px
   left: 200px
   transition-delay: 1.4s
 
 .sImg-4
-  bottom: 348px
-  left: 251px
+  bottom: 388px
+  left: 256px
   transition-delay: 1.6s
 
 .sImg-5
-  bottom: 345px
-  left: 316px
+  bottom: 385px
+  left: 322px
   transition-delay: 2s
 
 .index__button
@@ -216,9 +213,10 @@ export default {
 
 .start__button
   position: absolute
-  bottom: 72px
+  bottom: 48px
   left: 50%
   transform: translateX(-50%)
+
 
 /* 診断1問目〜5問 */
 
@@ -226,7 +224,7 @@ export default {
   display: flex
   width: 100%
   height: 100%
-  padding-bottom: 48px
+  padding-bottom: 24px
   flex-direction: column
   justify-content: space-between
   align-items: center
