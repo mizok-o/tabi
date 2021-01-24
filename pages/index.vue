@@ -136,6 +136,7 @@ export default {
 .index__container
   position: relative
   max-width: 375px
+  margin: 0 auto
   padding: 48px 20px 24px
   text-align: center
   border: 3px solid $color-accent

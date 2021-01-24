@@ -4,8 +4,8 @@
   ul.result__share__container
     li.result__share__item
       - url = 'https://shindan-4f59d.firebaseapp.com'
-      - text = '旅診断'
-      - hashtags = '診断アプリ'
+      - text = 'あなたに合う国を探しに行こう'
+      - hashtags = '旅先診断サイト'
       a.result__share__item-link.share-twitter(
         href=`https://twitter.com/share?url=${url}&text=${text}&hashtags=${hashtags}`
         target="_blank"
