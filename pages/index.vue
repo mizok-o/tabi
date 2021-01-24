@@ -138,9 +138,11 @@ export default {
   max-width: 375px
   height: 670px
   margin: auto
-  padding: 72px 20px 24px
+  padding: 48px 20px 24px
   text-align: center
   border: 3px solid $color-accent
+  border-bottom: none
+  border-top: none
   @media screen and (max-width: 375px)
     border: none
 
@@ -240,7 +242,7 @@ export default {
   font-weight: bold
 
 .q__list
-  margin: 64px 0 0
+  margin: 32px 0 0
 
 .q__list__item
   position: relative
