@@ -25,7 +25,6 @@ export default {
   css: [
     'assets/sass/normalize.sass',
     'assets/sass/common.sass',
-    'assets/sass/style.sass',
     'assets/sass/variable.sass'
   ],
   /*
