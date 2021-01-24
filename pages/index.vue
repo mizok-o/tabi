@@ -11,7 +11,7 @@
         :key="'sImg' + n"
         :class="'sImg-' + n"
         :src="src")
-      button.index__button.start__button(@click="shindanStart") 診断開始！
+      button.index__button.start__button(@click="shindanStart") 診断開始
     <!-- 質問 -->
     .q__container(
       v-if="startClicked === (i + 1)"
@@ -38,10 +38,9 @@
         p.result__maintext
           |あなたにおすすめの国は
           br
-          span.result__country {{ result.country }}
-          br
+          span(:style="{ backgroundImage: 'url(' + result.country + ')' }").result__country
           |です。
-        img.result-img(:src="result.url")
+        img.result-img(:src="result.img")
         p.result__subtext {{ result.text }}
         Share
       button(@click="reStart").index__button もう一度やる
@@ -142,7 +141,7 @@ export default {
   margin: auto
   padding: 72px 20px 24px
   text-align: center
-  border: 3px solid #222222
+  border: 3px solid $color-accent
 
 /* スタート */
 
@@ -153,13 +152,16 @@ export default {
 
 .start__title
   height: 32px
+  margin-top: 48px
   background-size: auto
   background-repeat: no-repeat
   background-image: url('~assets/img/top-title.svg')
 
 .start__sub
-  margin-top: 24px
+  margin-top: 32px
+  text-align: center
   font-size: 18px
+  font-weight: bold
 
 .start__footprint-img
   position: absolute
@@ -291,15 +293,17 @@ export default {
   align-items: center
 
 .result__title
-  font-size: 32px
   font-weight: bold
 
 .result__maintext
-  margin-top: 20px
-
-.result__country
-  font-family: $font-title
-  font-size: 40px
+  margin-top: 8px
+  span
+    display: block
+    width: 162px
+    height: 40px
+    margin: 8px auto
+    background-size: contain
+    background-repeat: no-repeat
 
 .result-img
   width: 160px
@@ -307,7 +311,7 @@ export default {
   margin: 24px auto 0
 
 .result__subtext
-  margin-top: 24px
+  margin-top: 16px
   font-size: 16px
   text-align: left
 
